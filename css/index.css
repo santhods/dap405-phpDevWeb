@@ -1,0 +1,35 @@
+body {
+    font-family: financier;
+    background-color: #fff1e0;
+    margin-top: 70px;
+}
+
+a, a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+.btn {
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-left: 20px;
+}
+
+#navibar {
+    padding-top: 70px;
+}
+
+.page-header {
+    text-align: center;
+    font-weight: bold;
+}
+
+#footer {
+    background-color: #8F223A;
+    color: white;
+}
+
+#headerPortal {
+  background-color: black;
+  color: white;
+}
