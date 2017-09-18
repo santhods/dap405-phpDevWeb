@@ -46,8 +46,8 @@
        							<ul class="nav navbar-nav">
                         			<li><a href="index.php#top">Return</a></li>
                     			</ul>
-                    			<a href="/frontend/signup.php" class="btn btn-success pull-right navbar-btn">Sign Up</a>
-								<a href="/frontend/signin.php" class="btn btn-primary pull-right navbar-btn">Member</a>
+                    			<a name="menuBtnSignUp" class="btn btn-success pull-right navbar-btn">Sign Up</a>
+								<a name="menuBtnSignUp" class="btn btn-primary pull-right navbar-btn">Member</a>
        						</nav>
 							</div>
 						</div>
