@@ -5,8 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Chichester CS Society</title>
 
-
-
 	<script
   src="https://code.jquery.com/jquery-3.2.1.slim.js"
   integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
@@ -24,54 +22,22 @@
 <!--  custom CSS -->
 <link rel="stylesheet" href="../css/index.css">
 
-<!-- link to apply button properties -->
-<script src="./middleware/defaultMenuBtnNav.js">
-window.onload = applyLink("menuBtnSignUp", "signup.php");
-window.onload = applyLink("menuBtnSignIn", "signin.php");
-</script>
 </head>
 
-	<body id="top">
+    <body id="top">
 			<!-- start header section -->
 			<section id="header">
-					<header>
-						<div id="bodynav" class="container-fluid">
-							<div class="row">
-							     <div class="navbar navbar-inverse navbar-fixed-top">
-							         <div class="navbar-header">
-                                        <a class="navbar-brand" href="#top">Chichester Computing Society</a>
-							
-                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navibar">
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>                        
-                                        </button> <!-- end class: button, navbar-toggle -->
-                                     </div> <!-- end class: navbar-header -->
-						      
-						              <div id="navibar" class="collapse navbar-collapse">
-           							      <ul class="nav navbar-nav" style="color:white">
-                            			     <li><a href="#top">Home</a></li>
-                            			     <li><a href="#about">About Us</a></li>
-	       									 <li><a href="#gallery">Gallery</a></li>
-                             			     <li><a href="#news">News</a></li>
-                            			     <li><a href="#contact">Contact</a></li>
-                           			      </ul>
-
-    								      <a href="#" id="menuBtnSignUp" class="btn btn-success pull-right navbar-btn">Sign Up</a>
-    								      <a href="#" id="menuBtnSignIn" class="btn btn-primary pull-right navbar-btn">Member</a>
-           						      </div> <!-- end id: navibar -->
-	       					    </div> <!-- end class: navigationbar-fixed-top -->			    
-						   </div> <!-- end class: row -->
-				        
-				        <div class="container" id="logo">
-					       <div class="row">
-       							<div class="jumbotron">
-       								<h1 align="center">Chichester Computer Society</h1>
-									<h4 class="page-header">Making Chichester Computing Society Great Again!</h4>
-       							</div> <!-- end class: jumbotron -->
-					       </div> <!-- end class: row  -->
-				        </div> <!-- end class: logo container -->
-				      </div> <!-- end id: bodynav -->
+				<header>
+				<?php include('./components/default-nav-bar.php'); ?>
+				
+					<div class="container" id="logo">
+	                   <div class="row">
+	                       <div class="jumbotron">
+	                           <h1 align="center">Chichester Computer Society</h1>
+	                           <h4 class="page-header">Making Chichester Computing Society Great Again!</h4>
+       		               </div> <!-- end class: jumbotron -->
+	                   </div> <!-- end class: row  -->
+	               </div> <!-- end class: logo container -->	
 				</header> <!-- end header -->
 			</section>
 			<!-- end header section -->
@@ -166,7 +132,7 @@ window.onload = applyLink("menuBtnSignIn", "signin.php");
 					<div class="container-fluid">
 						<div class="row">
 							<div class"col-lg-12">
-								<h4 class="page-header">DAP405 - Assignment, Student Number: 1707260</h4>
+								<h4 class="page-header">DAP406 - Assignment, Student Number: 1707260</h4>
 								</div>
 							</div>
 					</div>

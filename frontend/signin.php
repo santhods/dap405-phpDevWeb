@@ -39,26 +39,8 @@
 
 			<!-- start header section -->
 			<section id="header">
-					<header>
-						<div id="navibar" class="container-fluid">
-							<div class="row">
-							<nav class="navbar navbar-inverse navbar-fixed-top">
-       							<ul class="nav navbar-nav">
-                        			<li><a href="index.php#top">Return</a></li>
-                    			</ul>
-                    			<a name="menuBtnSignUp" class="btn btn-success pull-right navbar-btn">Sign Up</a>
-								<a name="menuBtnSignUp" class="btn btn-primary pull-right navbar-btn">Member</a>
-       						</nav>
-							</div>
-						</div>
-				<div class="container" id="logo">
-					<div class="row">
-       							<div class="jumbotron">
-       								<h1 align="center">Chichester Computer Society</h1>
-									<h4 class="page-header">Making Chichester Computing Society Great Again!</h4>
-       							</div>
-					</div>
-				</div>
+					<header>						
+						<?php include('./components/membership-nav-bar.php'); ?>
 				</header>
 			</section>
 			<!-- end header section -->
