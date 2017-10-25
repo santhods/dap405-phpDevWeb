@@ -3,26 +3,15 @@
 	<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sign In</title>
 
-	<script
-  src="https://code.jquery.com/jquery-3.2.1.slim.js"
-  integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
-  crossorigin="anonymous"></script>
+    <?php
+        include('./backend/components/_BootstrapCDN.php');
+        include($_SERVER['DOCUMENT_ROOT'] . "/backend/components/webinfo.php");
+    ?>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title><?php print($WEB_VALUE['siteTitle']); ?></title>
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<!--  custom CSS -->
-<link rel="stylesheet" href="../css/index.css">
-
-</head>
+    </head>
 
 	<body id="top">
 
@@ -52,7 +41,7 @@
 								<h3 class="page-header">Sign In</h3>
 							</div>
 					</div>
-					<form class="form-horizontal" method="post" action="/backend/verifylogin.php">
+					<form class="form-horizontal" method="post" action="../backend/verifylogin.php">
 							<div class="form-group">
 								<label class="control-label col-sm-3" for="email">Email</label>
 								<div class="col-md-7">
@@ -80,7 +69,7 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class"col-lg-12">
-								<h4 class="page-header">DAP406 - Assignment, Student Number: 1707260</h4>
+								<h4 class="page-header"><?php print($WEB_VALUE['authorInfo']); ?></h4>
 								</div>
 							</div>
 					</div>

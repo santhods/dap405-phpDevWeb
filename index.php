@@ -1,14 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <?php
+        include('./backend/components/_BootstrapCDN.php');
+        include("./backend/components/webinfo.php");
+     ?>
+
+     <title><?php print($WEB_VALUE['sitePageTitle']); ?></title>
+
+ </head>
+
 <body id="top">
 			<!-- start header section -->
 			<section id="header">
 				<header>
-				<?php include('default-nav-bar.php'); ?>
+				    <?php
+                        include('./frontend/default-nav-bar.php');
+                    ?>
+
 				
 					<div class="container" id="logo">
 	                   <div class="row">
 	                       <div class="jumbotron">
-	                           <h1 align="center">Ice Cream Factory</h1>
-	                           <h4 class="page-header">Making Icecream Factory Great Again!</h4>
+	                           <h1 align="center"><?php print($WEB_VALUE['sitePageTitle']); ?></h1>
+	                           <h4 class="page-header"><?php print($WEB_VALUE['sitePageJumbotron']); ?></h4>
        		               </div> <!-- end class: jumbotron -->
 	                   </div> <!-- end class: row  -->
 	               </div> <!-- end class: logo container -->	
@@ -102,13 +121,9 @@
 				</section>
 
 				<!--  start footer section -->
-				<section id="footer">
-					<div class="container-fluid">
-						<div class="row">
-							<div class"col-lg-12">
-								<h4 class="page-header">DAP406 - Assignment, Student Number: 1707260</h4>
-								</div>
-							</div>
-					</div>
-				</section>
-</body>
+                <?php
+                    include('./frontend/components/sitefooter.php');
+                ?>
+    </body>
+
+</html>

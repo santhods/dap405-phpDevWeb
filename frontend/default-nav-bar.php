@@ -1,9 +1,14 @@
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/backend/components/webinfo.php");
+?>
+
+
 <div id="bodynav" class="container-fluid">
     <div class="row">
 	     <div class="navbar navbar-inverse navbar-fixed-top">
 	        <div class="navbar-header">
                 
-                <a class="navbar-brand" href="#top">Chichester Ice Cream Factory</a>
+                <a class="navbar-brand" href="#top"><?php print($WEB_VALUE['sitePageTitle']); ?></a>
 							
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navibar">
                     <span class="icon-bar"></span>
