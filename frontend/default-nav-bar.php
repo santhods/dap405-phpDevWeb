@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/backend/components/webinfo.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/config.php");
 ?>
 
 
@@ -26,7 +26,10 @@ include($_SERVER['DOCUMENT_ROOT'] . "/backend/components/webinfo.php");
                     <li><a href="#news">News</a></li>
                     <li><a href="#contact">Contact</a></li>           
                 </ul>              
-                <?php include('default-nav-btn.php'); ?>
+                <?php 
+                #include('default-nav-btn.php');
+                include($WEB_DIRS['siteMemberNavBtn']);
+                ?>
     
            	</div> <!-- end id: navibar -->
 	     </div> <!-- end class: navigationbar-fixed-top -->			    

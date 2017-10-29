@@ -2,11 +2,13 @@
 	<div class="row">
 	   <nav class="navbar navbar-inverse navbar-fixed-top">
 	       <ul class="nav navbar-nav">
-	           <li><a href="../main.php#top">Return</a></li>
-               <li></li>
+	           <li><a href="../index.php">Return</a></li>
 	       </ul>
-           <?php include('./components/default-nav-btn.php'); ?>
+           <?php include($WEB_DIRS['siteMemberNavBtn']); ?>
 
         </nav>
     </div>
 </div>
+
+
+<?php $WEB_DIRS ?>

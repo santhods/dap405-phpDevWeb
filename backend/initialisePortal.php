@@ -1,3 +1,11 @@
+<!--- 
+ Objective: a record of a user in a MySQL table
+ if the column 'permission' equals 'admin' (proposed),
+ then redirects to the ~/view/adminportal.php, 
+ otherwise check for permission as 'member',
+ then redirect to ~/view/memberportal.php accordingly.
+-->
+
 <!DOCTYPE html>
 <html>
 	<head>

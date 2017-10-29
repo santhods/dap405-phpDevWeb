@@ -5,33 +5,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
         <?php
-            include('./backend/components/_BootstrapCDN.php');
-            include($_SERVER['DOCUMENT_ROOT'] . "/backend/components/webinfo.php");
+            include($_SERVER['DOCUMENT_ROOT'] . "/config.php");
+        	include($WEB_DIRS['bootstrapCDN']);
         ?>
 
      <title><?php print($WEB_VALUE['signupPageTitle']); ?></title>
 
     </head>
 
-	<body id="top">
+	<body>
+		<div id="wrapper">
+			
 			<!-- start header section -->
-			<section id="header">
+			<div id="header">
 					<header>
-						<?php include('./components/membership-nav-bar.php'); ?>
-				
+						<?php include($WEB_DIRS['siteMemberNavBar']); ?>
 				</header>
-			</section>
+			</div>
 			<!-- end header section -->
 
 
-			<section id="signup">
+			<div id="main-content">
 				<div class="container">
 							<div class="row">
        							<div class="col-md-12">
-											<h3 class="page-header"><?php print($WEB_VALUE['signupDialogTitle']); ?></h3>
-										</div>
-       				</div>
-								<form class="form-horizontal" method="post" action="../backend/register.php">
+											<h3 class="page-header"><?php print($WEB_VALUE['signupPageTitle']); ?></h3>
+								</div>
+       						</div>
+							
+							<form class="form-horizontal" method="post" action="../backend/register.php">
 									<div class="form-group">
 											<label class="control-label col-sm-3" for="membername">Name</label>
 											<div class="col-md-7">
@@ -66,19 +68,14 @@
 											<input class="btn btn-success" type="submit" name="register" value="Register">
 										</div>
 									</div>
-								</form>
+							</form>
 
 				</div>
-			</section>
+			</div>
 
-				<section id="footer">
-					<div class="container-fluid">
-						<div class="row">
-							<div class"col-lg-12">
-								<h4 class="page-header"><?php print($WEB_VALUE['authorInfo']); ?></h4>
-								</div>
-							</div>
-					</div>
-				</section>
+				<?php
+                    include($WEB_DIRS['sitePageFooter']);
+                ?>
+        </div>
 	</body>
 </html>

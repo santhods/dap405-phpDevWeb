@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
      <?php
-        include('./backend/components/_BootstrapCDN.php');
-        include("./backend/components/webinfo.php");
+        include("config.php");
+        include($WEB_DIRS['bootstrapCDN']);
      ?>
 
      <title><?php print($WEB_VALUE['sitePageTitle']); ?></title>
@@ -15,11 +15,12 @@
  </head>
 
 <body id="top">
+	<div id="wrapper">
 			<!-- start header section -->
-			<section id="header">
+			<div id="header">
 				<header>
 				    <?php
-                        include('./frontend/default-nav-bar.php');
+                        include($WEB_DIRS['sitePageNavBar']);
                     ?>
 
 				
@@ -32,9 +33,10 @@
 	                   </div> <!-- end class: row  -->
 	               </div> <!-- end class: logo container -->	
 				</header> <!-- end header -->
-			</section>
+			</div>>
 			<!-- end header section -->
 
+			<div id="main-content">
 			<!-- start about section -->
 			   	<section id="about">
        				<div class="container">
@@ -119,11 +121,15 @@
 						</div>
 					</div>
 				</section>
+				</div>
+			
+			<!--  start footer section -->
 
-				<!--  start footer section -->
-                <?php
-                    include('./frontend/components/sitefooter.php');
-                ?>
-    </body>
+            <?php
+        	    include($WEB_DIRS['sitePageFooter']);
+           	?>
+
+    </div>        
+</body>
 
 </html>

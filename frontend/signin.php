@@ -5,16 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php
-        include('./backend/components/_BootstrapCDN.php');
-        include($_SERVER['DOCUMENT_ROOT'] . "/backend/components/webinfo.php");
+        include($_SERVER['DOCUMENT_ROOT'] . "/config.php");
+        include($WEB_DIRS['bootstrapCDN']);
     ?>
 
-    <title><?php print($WEB_VALUE['siteTitle']); ?></title>
+    <title><?php print($WEB_VALUE['signinPageTitle']); ?></title>
 
     </head>
 
-	<body id="top">
-
+	<body>
+		
+		<div id="wrapper">
 			<?php
 				include("../backend/header.php");
 
@@ -25,20 +26,24 @@
 				}
 
 			?>
-
+			<div id="header">
 			<!-- start header section -->
 			<section id="header">
 					<header>						
-						<?php include('./components/membership-nav-bar.php'); ?>
+						<?php 
+							include($WEB_DIRS['siteMemberNavBar']);
+						?>
 				</header>
 			</section>
 			<!-- end header section -->
-
+			</div>
+		
+			<div id="main-content">
 			<section id="signin">
 				<div class="container">
 					<div class="row">
 							<div class="col-md-12">
-								<h3 class="page-header">Sign In</h3>
+								<h3 class="page-header"><?php print($WEB_VALUE['signinDialogTitle']); ?></h3>
 							</div>
 					</div>
 					<form class="form-horizontal" method="post" action="../backend/verifylogin.php">
@@ -63,16 +68,14 @@
 					</form>
 				</div>
 		</section>
+		</div>
+		
 
-				<!--  start footer section -->
-				<section id="footer">
-					<div class="container-fluid">
-						<div class="row">
-							<div class"col-lg-12">
-								<h4 class="page-header"><?php print($WEB_VALUE['authorInfo']); ?></h4>
-								</div>
-							</div>
-					</div>
-				</section>
-	</body>
+			<!--  start footer section -->
+			<?php
+        		include($WEB_DIRS['sitePageFooter']);
+        	?>
+    	</div>
+</body>
+
 </html>
