@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
      <?php
-        include("config.php");
+        include($_SERVER['DOCUMENT_ROOT'] . "/config.php");
         include($WEB_DIRS['bootstrapCDN']);
      ?>
 
@@ -33,102 +33,92 @@
 	                   </div> <!-- end class: row  -->
 	               </div> <!-- end class: logo container -->	
 				</header> <!-- end header -->
-			</div>>
+			</div>
 			<!-- end header section -->
 
 			<div id="main-content">
-			<!-- start about section -->
-			   	<section id="about">
+			<!-- start welcome section -->
+			   	<section id="home-welcome">
        				<div class="container">
 						   <div class="row">
-       							<div class="col-md-12"><h3 class="page-header">Who We Are..</h3></div>
+       							<div class="col-md-12"><h2 class="page-header"><?php echo $WEB_VALUE['homeIntroTitle']; ?></h2></div>
        						</div>
-       					<div class="row">
-       							<h4>This responsiveness had nothing to do with that flabby impressionability which is dignified under the name of the "creative temperament"-it was an extraordinary gift for hope, a romantic readiness such as I have never found in any other person and which it is not likely I shall ever find again. No-Gatsby turned out all right at the end; it is what preyed on Gatsby, what foul dust floated in the wake of his dreams that temporarily closed out my interest in the abortive sorrows and short-winded elations of men.
-								</h4>
+       						<div class="row">
+       							<h4>
+       							Welcome to <?php echo $WEB_VALUE['sitePageTitle']; ?>.
+       							<br>This website intends to provide you with the information about the Bills, Debates and 
+       							Votes currently taking place, as well as the information and the voting record of 
+       							your representatives - members of the House of Commons and the House of Lords 
+       							in the UK Houses of Parliament. 
+  								</h4>
+  								
+  								<h3><b>This is what you will see from this site.</b></h3>
+  								 <ol>
+  									<li><b>Bills: </b>The information about the bills, the stages in the parliament,
+  									as well as debates and votes taking place in relation to the bill.</li>
+  									<li><b>Debates: </b>The information about the debates in the parliament,
+  									in the topics such as the Government Policies, Urgent Questions; as well as 
+  									Ministers, Secretary of State, Chancellor of the Exchequer, and Prime Ministers Questions.</li>
+  									<li><b>Votes: </b>The information about the votes - past and present, taking place in the Parliament.
+  									by Members in the House of Commons and the House of Lords.</li>
+  								</ol>
     					</div>
 
 
+					</div>
+				</section>
+				<!-- end welcome section -->
+
+
+				<!-- start about section -->
+				<section id="home-about">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12"><h2 class="page-header"><?php echo $WEB_VALUE['homeAboutTitle']; ?></h2></div>
+						</div>
+						<div class="row">
+							<h4>
+								<b>Yes! We run this site for free!</b> <br>
+								This site is run by volunteers who are passionate about Politics.
+								We receive no income from anyone and tend to keep this site free forever.
+								However, we do accept donations in Bitcoins - <a href='#'>click here</a>
+							</h4>
+						</div>
 					</div>
 				</section>
 				<!-- end about section -->
 
-
-				<!-- start gallery section -->
-				<section id="gallery">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12"><h3 class="page-header">Gallery</h3></div>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<iframe src="https://www.instagram.com/p/BEqUQyFThDL/embed" width="100%" height="300px" style="border:0"></iframe>
-							</div>
-							<div class="col-md-4">
-								<iframe src="https://www.instagram.com/p/BRk0tOPjf6Y/embed" width="100%" height="300px" style="border:0"></iframe>
-							</div>
-							<div class="col-md-4">
-								<iframe src="https://www.instagram.com/p/BTEI6DrjqxC/embed" width="100%" height="300px" style="border:0"></iframe>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- end gallery section -->
-
-				<!-- start news section -->
-				<section id="news">
-					<div class="container">
-					<div class="row">
-					<div class="col-md-12"><h3 class="page-header">Latest News</h3></div>
-					</div>
-					<div class="row">
-    					<div class="col-md-4">
-    						<h4 class="headline page-header">Time to Talk About IoT</h4>
-							<h4>Nunc de hominis summo bono quaeritur; Si verbum sequimur, primum longius verbum praepositum quam bonum. Satisne ergo pudori consulat, si quis sine teste libidini pareat? Nam Pyrrho, Aristo, Erillus iam diu abiecti. Aliud igitur esse censet gaudere, aliud non dolere. Nunc haec primum fortasse audientis servire debemus.</h4>
-    					</div>
-    					<div class="col-md-4">
-							<h4 class="headline page-header">WannaCry Randomware</h4>
-    						<h4>Te enim iudicem aequum puto, modo quae dicat ille bene noris. Unum nescio, quo modo possit, si luxuriosus sit, finitas cupiditates habere. Negat esse eam, inquit, propter se expetendam. Maximas vero virtutes iacere omnis necesse est voluptate dominante. Nam quid possumus facere melius? Scisse enim te quis coarguere possit?</h4>
-    					</div>
-    					<div class="col-md-4">
-							<h4 class="headline page-header">Heading Towards Cloud</h4>
-    						<h4>Atque haec ita iustitiae propria sunt, ut sint virtutum reliquarum communia. Minime vero, inquit ille, consentit. Tollenda est atque extrahenda radicitus. Te ipsum, dignissimum maioribus tuis, voluptasne induxit, ut adolescentulus eriperes P.</h4>
-    					</div>
-    				</div>
-    			</div>
-				</section>
-				<!-- end news section -->
-
+				<!-- start contact section -->
 				<section id="contact">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-12"><h3 class="page-header">Contact Us</h3></div>
+							<div class="col-md-12"><h2 class="page-header"><?php echo $WEB_VALUE['homeContactTitle']; ?></h2></div>
 						</div>
 						<div class="row">
 							<div class="col-md-8">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2522.285605334094!2d-0.667279383982038!3d50.78881537952334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4875ac38fa141f35%3A0xf705e90032750154!2sUniversity+of+Chichester!5e0!3m2!1sen!2suk!4v1499007470485" width="100%" height="400px" frameborder="1" style="border:0" allowfullscreen></iframe>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.534648211203!2d-0.129780983904194!3d51.503406579634536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c56a6cc61d%3A0x2eca1ef309dd9534!2s10+Downing+St%2C+Westminster%2C+London+SW1A+2AB!5e0!3m2!1sen!2suk!4v1511450403986" width="100%" height="400px" frameborder="1" style="border:0" allowfullscreen></iframe>
 							</div>
 							<div class="col-md-4">
 								<h4>
-									<b>University of Chichester, <br>Bognor Regis Campus</b>
+									<b>Pie Minister Office<br>10 Drowning Street</b>
 								</h4>
 								<p>
-									Upper Bognor Rd, Bognor Regis <br> PO21 1HR <br>
-									<i>01243 816000</i> <br>
-									<i><a href="#">Email: admin@ice.chi.ac.uk</a></i>
+									Westminster, City of London<br> SW1A 2AB<br>
+									<i>020 7930 4480</i> <br>
+									<i><a href="#">Email: admin@tahi.politics</a></i>
 								</p>
 							</div>
 						</div>
 					</div>
 				</section>
-				</div>
-			
+				<!-- end contact section -->
+			</div>
 			<!--  start footer section -->
-
+			<div id="footer">
             <?php
         	    include($WEB_DIRS['sitePageFooter']);
            	?>
-
+			</div>
     </div>        
 </body>
 

@@ -1,0 +1,301 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.10deb1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 28, 2017 at 12:50 PM
+-- Server version: 5.5.57-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.22
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `dap406-tahi`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `extTblMgr`
+--
+
+CREATE TABLE IF NOT EXISTS `extTblMgr` (
+  `user` varchar(50) NOT NULL,
+  `cred` char(255) NOT NULL,
+  PRIMARY KEY (`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `extTblSubscribers-List`
+--
+
+CREATE TABLE IF NOT EXISTS `extTblSubscribers-List` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `accountName` varchar(200) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `localMP` varchar(500) DEFAULT 'Not Specified',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `localMP` (`localMP`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblBills-List`
+--
+
+CREATE TABLE IF NOT EXISTS `tblBills-List` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `billName` varchar(500) NOT NULL,
+  `description` longtext,
+  `billType` varchar(200) NOT NULL,
+  `billSponsor` varchar(500) NOT NULL,
+  `origin` varchar(100) NOT NULL,
+  `billProposedDate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `billName` (`billName`),
+  KEY `billSponsor` (`billSponsor`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblBills-Stages`
+--
+
+CREATE TABLE IF NOT EXISTS `tblBills-Stages` (
+  `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `billName` varchar(500) NOT NULL,
+  `billCurrentHouse` varchar(100) NOT NULL,
+  `billCurrentStage` varchar(200) NOT NULL,
+  `billLatestStage` varchar(200) NOT NULL,
+  `billStageLastUpdate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cuq-billName_currentHouse_currentStage` (`billName`,`billCurrentHouse`,`billCurrentStage`),
+  KEY `billName` (`billName`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblCommittees-List`
+--
+
+CREATE TABLE IF NOT EXISTS `tblCommittees-List` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `committeeName` varchar(500) NOT NULL,
+  `committeeRole` longtext,
+  `committeeType` varchar(500) NOT NULL,
+  `committeeChair` varchar(500) DEFAULT 'Not appointed',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cuq-committeeName_Type` (`committeeName`,`committeeType`),
+  UNIQUE KEY `committeeChair` (`committeeChair`),
+  KEY `committeeName` (`committeeName`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblCommittees-Members`
+--
+
+CREATE TABLE IF NOT EXISTS `tblCommittees-Members` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `committeeName` varchar(500) NOT NULL,
+  `committeeMember` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `composite-committeeName_Member-uq` (`committeeName`,`committeeMember`),
+  KEY `committeeName` (`committeeName`),
+  KEY `committeeMember` (`committeeMember`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblConstituencies-CommonsMembers`
+--
+
+CREATE TABLE IF NOT EXISTS `tblConstituencies-CommonsMembers` (
+  `constituency` varchar(500) NOT NULL,
+  `memberId` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`constituency`),
+  UNIQUE KEY `memberId` (`memberId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblDebates-Speeches`
+--
+
+CREATE TABLE IF NOT EXISTS `tblDebates-Speeches` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `debatesTopicId` int(10) unsigned NOT NULL,
+  `debatesTime` time NOT NULL,
+  `Speaker` varchar(500) NOT NULL,
+  `Message` longtext NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Speaker` (`Speaker`),
+  KEY `debatesTopicId` (`debatesTopicId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblDebates-Topics`
+--
+
+CREATE TABLE IF NOT EXISTS `tblDebates-Topics` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `subjectType` varchar(250) DEFAULT 'No Topic',
+  `subject` varchar(500) NOT NULL,
+  `description` longtext,
+  `date` date NOT NULL,
+  `location` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq-DebateType_Subject_Date_Location` (`subject`,`date`,`subjectType`,`location`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblGovernment-Ministers`
+--
+
+CREATE TABLE IF NOT EXISTS `tblGovernment-Ministers` (
+  `position` varchar(500) NOT NULL,
+  `memberId` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`position`),
+  UNIQUE KEY `memberId` (`memberId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblMembers`
+--
+
+CREATE TABLE IF NOT EXISTS `tblMembers` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) DEFAULT 'Member',
+  `name` varchar(500) NOT NULL,
+  `memberType` varchar(250) NOT NULL DEFAULT 'Parliamentarian',
+  `party` varchar(500) NOT NULL,
+  `email` varchar(500) NOT NULL,
+  `firstAppointedDate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblVote-List`
+--
+
+CREATE TABLE IF NOT EXISTS `tblVote-List` (
+  `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `voteRecordsId` int(10) unsigned zerofill NOT NULL,
+  `voteMembersName` varchar(500) NOT NULL,
+  `Status` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cuq-voteRecordsId_MembersName` (`voteRecordsId`,`voteMembersName`),
+  KEY `voteMemberName` (`voteMembersName`),
+  KEY `voteRecordsId` (`voteRecordsId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblVote-Records`
+--
+
+CREATE TABLE IF NOT EXISTS `tblVote-Records` (
+  `billStagesId` int(10) unsigned zerofill NOT NULL,
+  `totalAyes` int(10) unsigned NOT NULL,
+  `totalNoes` int(10) unsigned NOT NULL,
+  `result` varchar(50) NOT NULL,
+  PRIMARY KEY (`billStagesId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `extTblSubscribers-List`
+--
+ALTER TABLE `extTblSubscribers-List`
+  ADD CONSTRAINT `extTblSubscribers-List_ibfk_1` FOREIGN KEY (`localMP`) REFERENCES `tblMembers` (`name`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblBills-List`
+--
+ALTER TABLE `tblBills-List`
+  ADD CONSTRAINT `tblBills-List_ibfk_1` FOREIGN KEY (`billSponsor`) REFERENCES `tblMembers` (`name`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblBills-Stages`
+--
+ALTER TABLE `tblBills-Stages`
+  ADD CONSTRAINT `tblBills-Stages_ibfk_1` FOREIGN KEY (`billName`) REFERENCES `tblBills-List` (`billName`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblCommittees-List`
+--
+ALTER TABLE `tblCommittees-List`
+  ADD CONSTRAINT `tblCommittees-List_ibfk_1` FOREIGN KEY (`committeeChair`) REFERENCES `tblCommittees-Members` (`committeeMember`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblCommittees-Members`
+--
+ALTER TABLE `tblCommittees-Members`
+  ADD CONSTRAINT `fk_CommitteeList-Name` FOREIGN KEY (`committeeName`) REFERENCES `tblCommittees-List` (`committeeName`),
+  ADD CONSTRAINT `tblCommittees-Members_fk_membersName` FOREIGN KEY (`committeeMember`) REFERENCES `tblMembers` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblConstituencies-CommonsMembers`
+--
+ALTER TABLE `tblConstituencies-CommonsMembers`
+  ADD CONSTRAINT `tblConstituencies-CommonsMembers_ibfk_1` FOREIGN KEY (`memberId`) REFERENCES `tblMembers` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblDebates-Speeches`
+--
+ALTER TABLE `tblDebates-Speeches`
+  ADD CONSTRAINT `fk_Debates-TopicsID` FOREIGN KEY (`debatesTopicId`) REFERENCES `tblDebates-Topics` (`id`),
+  ADD CONSTRAINT `tblDebates-Speeches_fk_speaker` FOREIGN KEY (`Speaker`) REFERENCES `tblMembers` (`name`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblGovernment-Ministers`
+--
+ALTER TABLE `tblGovernment-Ministers`
+  ADD CONSTRAINT `tblGovernment-Ministers_ibfk_1` FOREIGN KEY (`memberId`) REFERENCES `tblMembers` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblVote-List`
+--
+ALTER TABLE `tblVote-List`
+  ADD CONSTRAINT `tblVote-List_fk_voteMembersName` FOREIGN KEY (`voteMembersName`) REFERENCES `tblMembers` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblVote-List_ibfk_1` FOREIGN KEY (`voteRecordsId`) REFERENCES `tblVote-Records` (`billStagesId`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblVote-Records`
+--
+ALTER TABLE `tblVote-Records`
+  ADD CONSTRAINT `tblVote-Records_ibfk_1` FOREIGN KEY (`billStagesId`) REFERENCES `tblBills-Stages` (`id`) ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
