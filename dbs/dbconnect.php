@@ -84,3 +84,11 @@ $chiuni->setConnection('localhost', 'BTHUMMA1', 'BTHUMMA1', 'eyMcUuX4');
 
 $dap406DB = $chiuni->getConnection();
 */
+
+/*
+$azure = new DBConnector('Azure DB Web Service');
+$azure->setConnection('localhost', 'dap406-tahi', 'azure', '6#vWHD_$');
+
+$dap406DB = $azure->getConnectiob();
+
+*/
